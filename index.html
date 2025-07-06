@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>epubDog</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐶</text></svg>">
+</head>
+<body>
+
+    <div class="app-container">
+        <header id="app-header">
+            <h1> epubDog 🐶</h1>
+        </header>
+
+        <div class="main-controls">
+            <label for="epub-upload" class="control-button">بارگذاری epub</label>
+            <input type="file" id="epub-upload" accept=".epub" hidden>
+            <button id="new-book-btn" class="control-button">کتاب جدید</button>
+            <button id="download-btn" class="control-button">دانلود epub</button>
+        </div>
+
+        <div id="viewer-area">
+            <div id="viewer"></div>
+            <a id="prev" href="javascript:void(0)">‹</a>
+            <a id="next" href="javascript:void(0)">›</a>
+        </div>
+        
+        <div id="editor-area" class="hidden">
+            <h2>ساخت/ویرایش کتاب</h2>
+            <div class="metadata-inputs">
+                <input type="text" id="book-title" placeholder="عنوان کتاب">
+                <input type="text" id="book-author" placeholder="نویسنده">
+            </div>
+
+            <div class="editor-main">
+                <div class="chapter-list-container">
+                    <h3>فصل‌ها</h3>
+                    <ul id="chapter-list">
+                        </ul>
+                    <button id="add-chapter-btn">+ افزودن فصل</button>
+                </div>
+                <div class="text-editor-container">
+                    <div class="special-keys">
+                        <button data-key="zwnj">نیم‌فاصله</button>
+                        <button data-key="h1">تیتر ۱</button>
+                        <button data-key="h2">تیتر ۲</button>
+                        <button data-key="p">پاراگراف</button>
+                        <button data-key="bold">ضخیم</button>
+                        <button data-key="italic">کج</button>
+                    </div>
+                    <div id="editor" contenteditable="true"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
